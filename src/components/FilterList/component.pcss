@@ -1,0 +1,177 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+.inputSearch {
+    line-height: inherit;
+    border: 1px solid #bcdff1 !important;
+    border-radius: 0;
+    padding: 5px;
+    min-width: 100%;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+  .btn{
+  background-color: #d9edf7;
+  border-color: #bcdff1;
+  color: #31708f;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.inputSearch:focus{
+  border-bottom: 1px solid #deaee7 !important;
+}
+.com{
+    margin-right: 5px;
+    font-size: 20px;
+    color: #dfaee8;
+}
+.listLi{
+  margin: 5px;
+  color: #777;
+  font-size: 14px;
+  border: 1px solid #eee;
+  position: relative;
+  padding:10px 20px;
+  border-radius: 10px;
+ }
+ .delete{
+  position:absolute;
+  right:5px;
+  top: 5px;
+ }
+ .delete:hover{
+   color:#deaee7;
+ }
+li p, ul {
+  margin: 0;
+  padding: 0;
+
+}
+p:first-child{
+  color:#deaee7;
+}
+p:nth-child(2){
+  font-size: 13px;
+}
+.comment{
+    font-size: 24px;
+    color: #dfaee8;
+    text-align:right;
+}
+.inputCom{
+    font-size: 16px;
+    color: #dfaee8;
+    border:none;
+    width: 80%;
+    resize: none;
+    overflow: auto;
+}
+.form{
+    padding-top: 45px;
+}
+.inputCom2{
+    font-size: 16px;
+    color: #dfaee8;
+    width: 100%;
+    resize: none;
+    overflow: auto;
+    border:1px solid #bcdff1;
+    margin-bottom: 5px;
+    padding: 5px;
+
+}
+.title{
+    font-size: 16px;
+    color: #bcdff1;
+    border:none;
+    width: 80%;
+    resize: none;
+    overflow: auto;
+}
+.ul{
+    max-height: 410px;
+    overflow: scroll;
+    border: 2px solid #eee;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.showbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5%;
+  z-index: 5555;
+  background: #ffffff47;
+}
+.loader {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+}
+.loader:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes color {
+  100%,
+  0% {
+    stroke: #d62d20;
+  }
+  40% {
+    stroke: #0057e7;
+  }
+  66% {
+    stroke: #008744;
+  }
+  80%,
+  90% {
+    stroke: #ffa700;
+  }
+}
