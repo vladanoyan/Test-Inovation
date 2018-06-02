@@ -6,4 +6,9 @@ export default [
     component: FilterList,
     exact: true,
   },
+  {
+    path: '/:postId/details',
+    component: FilterList,
+    exact: true,
+  },
 ];

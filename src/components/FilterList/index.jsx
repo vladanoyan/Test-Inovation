@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Col, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Delete from 'react-icons/lib/go/trashcan';
@@ -18,19 +19,20 @@ class filterList extends React.Component {
       value: '',
       body: '',
       email: '',
-      id: '',
-      show: false,
+      show: true,
     };
   }
 
   componentDidMount() {
+    setTimeout(() => {
+      this.setState({ show: false });
+    }, 1000);
     this.props.dispatchData('https://jsonplaceholder.typicode.com/comments');
   }
   editing(item, e) {
     const newValue = e.target.value;
     const items = this.props.contacts;
     const index = items.indexOf(item);
-    console.log(index, items);
     items[index].name = newValue;
     this.props.dispatchUpdate(this.state.value);
   }
@@ -38,7 +40,6 @@ class filterList extends React.Component {
     const newBody = e.target.value;
     const items = this.props.contacts;
     const index = items.indexOf(item);
-    console.log(index, items);
     items[index].body = newBody;
     this.props.dispatchUpdate(this.state.body);
   }
@@ -50,7 +51,6 @@ class filterList extends React.Component {
     this.setState({ value: '', body: '', email: '' });
   }
   rem(e) {
-    console.log(e);
     this.props.sendDelete(e);
     this.setState({ show: true });
     setTimeout(() => {
@@ -113,21 +113,25 @@ class filterList extends React.Component {
                       >
                         <p>Post id: {item.postId}</p>
                         <Person className={cs.com} />
-                        <input
-                          className={cs.title}
-                          onChange={this.editing.bind(this, item)}
-                          value={item.name}
-                        />
+                        <Link to={`/${item.id}/details`} >
+                          <input
+                            className={cs.title}
+                            onChange={this.editing.bind(this, item)}
+                            value={item.name}
+                          />
+                        </Link>
                         <p><Email className={cs.com} />{item.email}</p>
-                        <textarea
-                          name="text"
-                          rows="4"
-                          cols="10"
-                          wrap="soft"
-                          className={cs.inputCom}
-                          onChange={this.editingBody.bind(this, item)}
-                          value={item.body}
-                        />
+                        <Link to={`/${item.id}/details`} >
+                          <textarea
+                            name="text"
+                            rows="4"
+                            cols="10"
+                            wrap="soft"
+                            className={cs.inputCom}
+                            onChange={this.editingBody.bind(this, item)}
+                            value={item.body}
+                          />
+                        </Link>
                         <Delete
                           className={cs.delete}
                           onClick={this.rem.bind(this, item.id)}

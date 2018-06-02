@@ -1,7 +1,7 @@
 const contacts = (state = [], action) => {
   switch (action.type) {
     case 'DATA':
-      console.log('dispatch Worked !!!', action.dataFetch);
+      console.log('dispatch Worked !!!');
       return [
         ...action.dataFetch,
       ];
